@@ -24,9 +24,16 @@ Route::get('test', function() {
 Route::get('goods', function() {
     // If the Content-Type and Accept headers are set to 'application/json',
     // this will return a JSON structure. This will be cleaned up later.
-    $data = Goods::all();
+    $data1 = Goods::where(['type'=>-1])->all();
+    $data2 = Goods::where(['type'=>2])->all();
+    $data3 = Goods::where(['type'=>2])->all();
+    $data = [
+        ['name'=>1,'type'=>'-1','foods'=>$data1],
+        ['name'=>2,'type'=>'1','foods'=>$data2],
+        ['name'=>3,'type'=>'2','foods'=>$data3],
+    ];
     $return = ['errno'=>0,'data'=>$data];
-    return Goods::all();
+    return $return;
 });
 
 Route::get('goods/{id}', function($id) {
