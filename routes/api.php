@@ -16,12 +16,16 @@ use App\Models\Goods;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+Route::get('test', function() {
+    return 'test';
+});
 
 
 Route::get('goods', function() {
     // If the Content-Type and Accept headers are set to 'application/json',
     // this will return a JSON structure. This will be cleaned up later.
+    $data = Goods::all();
+    $return = ['errno'=>0,'data'=>$data];
     return Goods::all();
 });
 
