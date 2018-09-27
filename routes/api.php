@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\Models\Goods;
+use App\Models\Seller;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -35,6 +36,17 @@ Route::get('goods', function() {
     $return = ['errno'=>0,'data'=>$data];
     return $return;
 });
+
+//http://api.hand-angel.top/api/seller/1
+Route::get('seller/{id}', function($id) {
+    $data = Seller::find($id);
+    $data['supports'] = json_decode($data['supports']);
+    $data['pics'] = json_decode($data['pics']);
+    $data['infos'] = json_decode($data['infos']);
+    $return = ['errno'=>0,'data'=>$data];
+    return $return;
+});
+
 
 Route::get('goods/{id}', function($id) {
     return Goods::find($id);
