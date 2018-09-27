@@ -49,7 +49,7 @@ Route::get('seller/{id}', function($id) {
 
 
 Route::get('goods/{id}', function($id) {
-    return Goods::find($id);
+    return Goods::find($id)->toArray();
 });
 
 Route::post('goods', function(Request $request) {
