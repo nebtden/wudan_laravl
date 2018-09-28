@@ -13,6 +13,7 @@ Route::group([
     $router->get('/', 'HomeController@index');
 //    $router->resource('waybill', 'WaybillController');
     $router->resource('goods', 'GoodsController');
-    $router->resource('seller', 'SellerController@index');
+    $router->resource('seller', 'SellerController');
+    $router->resource('orders', 'OrderController');
 
 });
