@@ -9,6 +9,7 @@ use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
+use Intervention\Image\ImageManagerStatic as Image;
 
 
 class GoodsController extends Controller
@@ -113,11 +114,29 @@ class GoodsController extends Controller
 
             $form->text('name', '产品名')->rules('required');
             $form->textarea('description', '描述')->rules('required');
+            $form->image('icon', '图片')->name(function ($file) {
+                $imgfile =  time() . '.';
+                return 'icon/' . $imgfile . $file->guessExtension();
+            });
+
             $form->select('type', 'Money Type')->options(Goods::$types);
             $form->hidden('id');
 
 
+            $form->saved(function (Form $form) {
+                $img = $form->model()->icon;
+                if ($img) {
+                    // open an image file
+                    $img = Image::make(public_path() . '/icon/' . $img);
+                    $height = $img->height();
+                    $width = $img->width();
+                    if ($height + $width > 1400) {
+                        $img->resize($width / 2, $height / 2);
+                        $img->save();
+                    }
+                }
 
+            });
 
         });
     }
