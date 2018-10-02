@@ -85,6 +85,9 @@ class GoodsController extends Controller
 
             $grid->description();
             $grid->sellerCount();
+            $grid->column('icon')->display(function () {
+                return  '<img src="/icon/'.$this->icon.'">';
+            });
 
             $grid->column('price')->display(function () {
                 return  '$'.$this->price;
@@ -116,7 +119,7 @@ class GoodsController extends Controller
             $form->textarea('description', '描述')->rules('required');
             $form->image('icon', '图片')->name(function ($file) {
                 $imgfile =  time() . '.';
-                return 'icon/' . $imgfile . $file->guessExtension();
+                return  $imgfile . $file->guessExtension();
             });
 
             $form->select('type', 'Money Type')->options(Goods::$types);

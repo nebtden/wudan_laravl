@@ -74,7 +74,7 @@ return [
             'image' => 'images',
             'file'  => 'files',
         ],
-        'host' => env('APP_URL').'/icon',
+        'host' => env('APP_URL').'',
     ],
 
     /*

@@ -45,6 +45,7 @@ return [
         'admin'=>[
             'driver' => 'local',
             'root' => public_path('icon'),
+            'url'  => env('APP_URL').'/icon',
         ],
 
         'local' => [
