@@ -16,7 +16,7 @@
 <body>
 
 <div class="container">
-    <form action="{{ route('order/create') }} method="POST" >
+    <form action="{{ route('order/create') }}" method="POST"  class="form-horizontal">
     {{ csrf_field() }}
         <div class="form-group">
             <label for="phone">手机号码</label>
@@ -24,12 +24,13 @@
            {{-- <small id="" class="form-text text-muted">We'll never share your email with anyone else.</small>--}}
         </div>
         <div class="form-group">
-            <label for="location">Password</label>
-            <input type="text" class="form-control" id="location" placeholder="请输入可联系的详细地址">
-            <small id="location_help" class="form-text text-muted">请注意，我们暂时只配送店面一公里内区域</small>
+            <label for="location">地址</label>
+            <input type="text" class="form-control" id="location" placeholder="请输入可联系的详细地址，比如星沙XX网吧">
+            <small id="location_help" class="form-text text-muted">请注意，我们暂时只配送店面三公里内区域</small>
         </div>
 
-        <button type="submit" class="btn btn-primary">提交</button>
+               <button type="submit" class="btn btn-primary btn">提交</button>
+
     </form>
 
 </div>

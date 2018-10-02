@@ -10,9 +10,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Orders;
 
-class UploadController extends Controller
+class OrderController extends Controller
 {
-    public function index()
+    public function create()
     {
         return view('upload/upload');
     }
