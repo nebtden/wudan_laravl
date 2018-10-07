@@ -15,10 +15,10 @@ class UploadController extends Controller
     public function index($data)
     {
 
-        dd($data);
-//        va
-//        Goods
-        $goods = js();
+
+        $goods = json_decode($data);
+        session(['goods' => $goods]);
+
 
         return view('upload/upload');
     }

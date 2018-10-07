@@ -10,7 +10,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 class Orders extends Model
 {
-    public $timestamps= false;
+//    public $timestamps= false;
 
     public function order_goods(){
         return $this->hasMany(OrdersGoods::class,'order_id');

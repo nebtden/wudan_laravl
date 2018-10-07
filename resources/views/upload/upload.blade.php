@@ -15,16 +15,22 @@
 <body>
 
 <div class="container">
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
+        </div>
+    @endif
     <form action="{{ route('order/create') }}" method="POST"  class="form-horizontal">
     {{ csrf_field() }}
         <div class="form-group">
             <label for="phone">手机号码</label>
-            <input type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="请输入你的手机号码，便于联系" name="phone">
+            <input type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="请输入你的手机号码，便于联系" name="phone" value="{{ session('phone') }}">
            {{-- <small id="" class="form-text text-muted">We'll never share your email with anyone else.</small>--}}
         </div>
         <div class="form-group">
             <label for="location">地址</label>
-            <input type="text" class="form-control" id="location" placeholder="请输入可联系的详细地址，比如星沙XX网吧">
+            <input type="text" class="form-control" id="location" name="location" placeholder="请输入可联系的详细地址，比如星沙XX网吧" value="{{ session('location') }}">
             <small id="location_help" class="form-text text-muted">请注意，我们暂时只配送店面三公里内区域</small>
         </div>
 

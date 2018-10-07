@@ -16,5 +16,6 @@ Route::get('/', function () {
 });
 
 Route::get('/upload/{data}', 'UploadController@index');
+Route::get('/success', 'OrderController@success');
 //Route::resource('order', 'OrderController');
-Route::get('order/create', 'OrderController@create')->name('order/create');
+Route::post('/order/create', 'OrderController@create')->name('order/create');
