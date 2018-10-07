@@ -10,10 +10,32 @@ Target Server Type    : MYSQL
 Target Server Version : 100207
 File Encoding         : 65001
 
-Date: 2018-09-27 22:36:48
+Date: 2018-09-28 22:32:44
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for admin_menu
+-- ----------------------------
+DROP TABLE IF EXISTS `admin_menu`;
+CREATE TABLE `admin_menu` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `parent_id` int(11) NOT NULL DEFAULT 0,
+  `order` int(11) NOT NULL DEFAULT 0,
+  `title` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uri` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------
+-- Records of admin_menu
+-- ----------------------------
+INSERT INTO `admin_menu` VALUES ('6', '0', '1', 'Goods', 'fa-tasks', 'goods', null, null);
+INSERT INTO `admin_menu` VALUES ('7', '0', '2', 'Orders', 'fa-dollar', 'orders', null, null);
 
 -- ----------------------------
 -- Table structure for admin_menu_copy
@@ -57,7 +79,7 @@ CREATE TABLE `admin_operation_log` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `admin_operation_log_user_id_index` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of admin_operation_log
@@ -87,6 +109,45 @@ INSERT INTO `admin_operation_log` VALUES ('22', '1', 'admin/goods/3', 'PUT', '12
 INSERT INTO `admin_operation_log` VALUES ('23', '1', 'admin/goods/3/edit', 'GET', '127.0.0.1', '[]', '2018-09-27 13:52:31', '2018-09-27 13:52:31');
 INSERT INTO `admin_operation_log` VALUES ('24', '1', 'admin/goods/3', 'PUT', '127.0.0.1', '{\"name\":\"\\u5434\\u4e39\",\"description\":\"ssss\",\"type\":\"-1\",\"id\":\"3\",\"_token\":\"HvCc0gNg8iZ5nHUrl0uwr4wHNkiGOvr0wfi7IlgS\",\"_method\":\"PUT\"}', '2018-09-27 13:53:02', '2018-09-27 13:53:02');
 INSERT INTO `admin_operation_log` VALUES ('25', '1', 'admin/goods', 'GET', '127.0.0.1', '[]', '2018-09-27 13:53:02', '2018-09-27 13:53:02');
+INSERT INTO `admin_operation_log` VALUES ('26', '1', 'admin', 'GET', '127.0.0.1', '[]', '2018-09-28 13:48:04', '2018-09-28 13:48:04');
+INSERT INTO `admin_operation_log` VALUES ('27', '1', 'admin', 'GET', '127.0.0.1', '[]', '2018-09-28 13:48:31', '2018-09-28 13:48:31');
+INSERT INTO `admin_operation_log` VALUES ('28', '1', 'admin/goods', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-09-28 13:48:34', '2018-09-28 13:48:34');
+INSERT INTO `admin_operation_log` VALUES ('29', '1', 'admin/goods', 'GET', '127.0.0.1', '[]', '2018-09-28 13:48:53', '2018-09-28 13:48:53');
+INSERT INTO `admin_operation_log` VALUES ('30', '1', 'admin/goods', 'GET', '127.0.0.1', '[]', '2018-09-28 13:49:13', '2018-09-28 13:49:13');
+INSERT INTO `admin_operation_log` VALUES ('31', '1', 'admin/goods', 'GET', '127.0.0.1', '[]', '2018-09-28 13:50:16', '2018-09-28 13:50:16');
+INSERT INTO `admin_operation_log` VALUES ('32', '1', 'admin/goods', 'GET', '127.0.0.1', '[]', '2018-09-28 13:54:00', '2018-09-28 13:54:00');
+INSERT INTO `admin_operation_log` VALUES ('33', '1', 'admin/goods', 'GET', '127.0.0.1', '[]', '2018-09-28 13:54:11', '2018-09-28 13:54:11');
+INSERT INTO `admin_operation_log` VALUES ('34', '1', 'admin/goods', 'GET', '127.0.0.1', '[]', '2018-09-28 13:54:23', '2018-09-28 13:54:23');
+INSERT INTO `admin_operation_log` VALUES ('35', '1', 'admin/goods', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-09-28 13:54:24', '2018-09-28 13:54:24');
+INSERT INTO `admin_operation_log` VALUES ('36', '1', 'admin/goods', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-09-28 13:54:26', '2018-09-28 13:54:26');
+INSERT INTO `admin_operation_log` VALUES ('37', '1', 'admin/goods', 'GET', '127.0.0.1', '[]', '2018-09-28 13:54:35', '2018-09-28 13:54:35');
+INSERT INTO `admin_operation_log` VALUES ('38', '1', 'admin/orders', 'GET', '127.0.0.1', '[]', '2018-09-28 13:56:46', '2018-09-28 13:56:46');
+INSERT INTO `admin_operation_log` VALUES ('39', '1', 'admin/orders', 'GET', '127.0.0.1', '[]', '2018-09-28 13:56:59', '2018-09-28 13:56:59');
+INSERT INTO `admin_operation_log` VALUES ('40', '1', 'admin/orders', 'GET', '127.0.0.1', '[]', '2018-09-28 13:58:34', '2018-09-28 13:58:34');
+INSERT INTO `admin_operation_log` VALUES ('41', '1', 'admin/orders', 'GET', '127.0.0.1', '[]', '2018-09-28 13:59:49', '2018-09-28 13:59:49');
+INSERT INTO `admin_operation_log` VALUES ('42', '1', 'admin/orders', 'GET', '127.0.0.1', '[]', '2018-09-28 14:01:03', '2018-09-28 14:01:03');
+INSERT INTO `admin_operation_log` VALUES ('43', '1', 'admin/orders', 'GET', '127.0.0.1', '[]', '2018-09-28 14:04:08', '2018-09-28 14:04:08');
+INSERT INTO `admin_operation_log` VALUES ('44', '1', 'admin/orders', 'GET', '127.0.0.1', '[]', '2018-09-28 14:05:07', '2018-09-28 14:05:07');
+INSERT INTO `admin_operation_log` VALUES ('45', '1', 'admin/orders/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-09-28 14:05:32', '2018-09-28 14:05:32');
+INSERT INTO `admin_operation_log` VALUES ('46', '1', 'admin/orders', 'GET', '127.0.0.1', '[]', '2018-09-28 14:05:33', '2018-09-28 14:05:33');
+INSERT INTO `admin_operation_log` VALUES ('47', '1', 'admin/orders', 'GET', '127.0.0.1', '[]', '2018-09-28 14:06:33', '2018-09-28 14:06:33');
+INSERT INTO `admin_operation_log` VALUES ('48', '1', 'admin/orders/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-09-28 14:06:35', '2018-09-28 14:06:35');
+INSERT INTO `admin_operation_log` VALUES ('49', '1', 'admin/orders', 'GET', '127.0.0.1', '[]', '2018-09-28 14:06:35', '2018-09-28 14:06:35');
+INSERT INTO `admin_operation_log` VALUES ('50', '1', 'admin/orders', 'GET', '127.0.0.1', '[]', '2018-09-28 14:13:56', '2018-09-28 14:13:56');
+INSERT INTO `admin_operation_log` VALUES ('51', '1', 'admin/orders/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-09-28 14:13:58', '2018-09-28 14:13:58');
+INSERT INTO `admin_operation_log` VALUES ('52', '1', 'admin/orders', 'GET', '127.0.0.1', '[]', '2018-09-28 14:13:59', '2018-09-28 14:13:59');
+INSERT INTO `admin_operation_log` VALUES ('53', '1', 'admin/orders', 'GET', '127.0.0.1', '[]', '2018-09-28 14:14:17', '2018-09-28 14:14:17');
+INSERT INTO `admin_operation_log` VALUES ('54', '1', 'admin/orders/1/edit', 'GET', '127.0.0.1', '[]', '2018-09-28 14:14:21', '2018-09-28 14:14:21');
+INSERT INTO `admin_operation_log` VALUES ('55', '1', 'admin/orders/1/edit', 'GET', '127.0.0.1', '[]', '2018-09-28 14:15:21', '2018-09-28 14:15:21');
+INSERT INTO `admin_operation_log` VALUES ('56', '1', 'admin/orders/1/edit', 'GET', '127.0.0.1', '[]', '2018-09-28 14:15:46', '2018-09-28 14:15:46');
+INSERT INTO `admin_operation_log` VALUES ('57', '1', 'admin/orders/1/edit', 'GET', '127.0.0.1', '[]', '2018-09-28 14:17:06', '2018-09-28 14:17:06');
+INSERT INTO `admin_operation_log` VALUES ('58', '1', 'admin/orders', 'GET', '127.0.0.1', '[]', '2018-09-28 14:19:37', '2018-09-28 14:19:37');
+INSERT INTO `admin_operation_log` VALUES ('59', '1', 'admin/orders', 'GET', '127.0.0.1', '[]', '2018-09-28 14:20:31', '2018-09-28 14:20:31');
+INSERT INTO `admin_operation_log` VALUES ('60', '1', 'admin/orders', 'GET', '127.0.0.1', '[]', '2018-09-28 14:21:09', '2018-09-28 14:21:09');
+INSERT INTO `admin_operation_log` VALUES ('61', '1', 'admin/orders', 'GET', '127.0.0.1', '[]', '2018-09-28 14:29:21', '2018-09-28 14:29:21');
+INSERT INTO `admin_operation_log` VALUES ('62', '1', 'admin/orders', 'GET', '127.0.0.1', '[]', '2018-09-28 14:29:43', '2018-09-28 14:29:43');
+INSERT INTO `admin_operation_log` VALUES ('63', '1', 'admin/orders', 'GET', '127.0.0.1', '[]', '2018-09-28 14:29:51', '2018-09-28 14:29:51');
+INSERT INTO `admin_operation_log` VALUES ('64', '1', 'admin/orders', 'GET', '127.0.0.1', '[]', '2018-09-28 14:30:29', '2018-09-28 14:30:29');
 
 -- ----------------------------
 -- Table structure for admin_permissions
@@ -274,6 +335,55 @@ CREATE TABLE `migrations` (
 INSERT INTO `migrations` VALUES ('1', '2014_10_12_000000_create_users_table', '1');
 INSERT INTO `migrations` VALUES ('2', '2014_10_12_100000_create_password_resets_table', '1');
 INSERT INTO `migrations` VALUES ('3', '2016_01_04_173148_create_admin_tables', '1');
+
+-- ----------------------------
+-- Table structure for orders
+-- ----------------------------
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `phone` varchar(20) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `remark` varchar(255) DEFAULT NULL,
+  `price` decimal(10,2) DEFAULT 0.00,
+  `status` tinyint(1) DEFAULT 0,
+  `created_at` datetime DEFAULT NULL ON UPDATE current_timestamp(),
+  `updated_at` datetime DEFAULT NULL ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of orders
+-- ----------------------------
+INSERT INTO `orders` VALUES ('1', '13365802535', '嘉顺苑', '我饿了。快点送来。。', '12.00', '1', '2018-09-28 22:05:22', '2018-09-28 22:05:22');
+
+-- ----------------------------
+-- Table structure for orders_goods
+-- ----------------------------
+DROP TABLE IF EXISTS `orders_goods`;
+CREATE TABLE `orders_goods` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_id` int(11) DEFAULT NULL,
+  `goods_id` int(11) DEFAULT NULL,
+  `goods_name` varchar(255) DEFAULT NULL,
+  `count` int(11) DEFAULT NULL,
+  `price` decimal(10,2) DEFAULT 0.00,
+  `created_at` datetime DEFAULT NULL ON UPDATE current_timestamp(),
+  `updated_at` datetime DEFAULT NULL ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of orders_goods
+-- ----------------------------
+INSERT INTO `orders_goods` VALUES ('1', '1', '1', '炸鸡1', '11', '12.00', '2018-09-28 22:21:06', '2018-09-28 22:21:06');
+INSERT INTO `orders_goods` VALUES ('2', '1', '1', '炸鸡2', '12', '12.00', '2018-09-28 22:21:05', '2018-09-28 22:21:05');
+INSERT INTO `orders_goods` VALUES ('3', '1', '1', '炸鸡1', '11', '12.00', '2018-09-28 22:21:06', '2018-09-28 22:21:06');
+INSERT INTO `orders_goods` VALUES ('4', '1', '1', '炸鸡2', '12', '12.00', '2018-09-28 22:21:05', '2018-09-28 22:21:05');
+INSERT INTO `orders_goods` VALUES ('5', '1', '1', '炸鸡1', '11', '12.00', '2018-09-28 22:21:06', '2018-09-28 22:21:06');
+INSERT INTO `orders_goods` VALUES ('6', '1', '1', '炸鸡2', '12', '12.00', '2018-09-28 22:21:05', '2018-09-28 22:21:05');
+INSERT INTO `orders_goods` VALUES ('7', '1', '1', '炸鸡1', '11', '12.00', '2018-09-28 22:21:06', '2018-09-28 22:21:06');
+INSERT INTO `orders_goods` VALUES ('8', '1', '1', '炸鸡2', '12', '12.00', '2018-09-28 22:21:05', '2018-09-28 22:21:05');
 
 -- ----------------------------
 -- Table structure for password_resets
