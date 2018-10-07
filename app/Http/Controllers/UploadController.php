@@ -12,8 +12,14 @@ use App\Models\Orders;
 
 class UploadController extends Controller
 {
-    public function index()
+    public function index($data)
     {
+
+        dd($data);
+//        va
+//        Goods
+        $goods = js();
+
         return view('upload/upload');
     }
 

@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>下单</title>
 
     <!-- Bootstrap core CSS -->
@@ -29,12 +28,9 @@
             <small id="location_help" class="form-text text-muted">请注意，我们暂时只配送店面三公里内区域</small>
         </div>
 
-               <button type="submit" class="btn btn-primary btn">提交</button>
-
+     <button type="submit" class="btn btn-primary btn">提交</button>
     </form>
-
 </div>
-
 
 </body>
 </html>
